@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bungjppeb2a5c"]
+
+[ext_resource type="Script" uid="uid://dqdaflu75h8go" path="res://Scripts/diamante.gd" id="1_obmqj"]
+[ext_resource type="Texture2D" uid="uid://f5utktgoi31d" path="res://Sprites/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/01.png" id="2_chhis"]
+[ext_resource type="Texture2D" uid="uid://ci7j2fv61a2np" path="res://Sprites/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/02.png" id="3_kxakv"]
+[ext_resource type="Texture2D" uid="uid://c51f25jxwauq2" path="res://Sprites/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/03.png" id="4_m2m4j"]
+[ext_resource type="Texture2D" uid="uid://bhjpalcep7a11" path="res://Sprites/Treasure Hunters/Pirate Treasure/Sprites/Red Diamond/04.png" id="5_p7b45"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75npx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqexc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_chhis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kxakv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m2m4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_p7b45")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Diamante" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_obmqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_75npx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_yqexc")
+animation = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

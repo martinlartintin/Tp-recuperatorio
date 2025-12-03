@@ -20,8 +20,10 @@ func _physics_process(delta: float) -> void:
 	var move_dir: int = sign(input_dir)
 
 	var current_speed: float = SPEED
+	var current_jump_force: float = JUMP_FORCE
 	if Global.cofre_abierto:
 		current_speed = SPEED * 1.5
+		current_jump_force = JUMP_FORCE * 1.5
 	velocity.x = move_dir * current_speed
 
 	if move_dir != 0:

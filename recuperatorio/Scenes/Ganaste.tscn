@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://qrfpgw6nkvtl"]
+
+[ext_resource type="Script" uid="uid://c5mf5qndo2tl7" path="res://Scripts/ganaste.gd" id="1_64wr0"]
+[ext_resource type="FontFile" uid="uid://bxlx8yfe6dje2" path="res://Fonts/Pixellari.ttf" id="2_1ux51"]
+
+[node name="Ganaste" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_64wr0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -39.5
+offset_right = 114.0
+offset_bottom = 39.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1ux51")
+theme_override_font_sizes/font_size = 32
+text = "Ganaste"
+
+[node name="Ganaste" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_1ux51")
+
+[node name="ENTER" type="Label" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_1ux51")
+theme_override_font_sizes/font_size = 16
+text = "presiona ENTER para continuar "

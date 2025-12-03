@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://c53w04r84hpj7"]
+[gd_scene load_steps=17 format=4 uid="uid://c53w04r84hpj7"]
 
 [ext_resource type="Texture2D" uid="uid://cl5bcl81o0uka" path="res://Sprites/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_tumq0"]
 [ext_resource type="PackedScene" uid="uid://bw6qjf3fa0v6u" path="res://Scenes/Player.tscn" id="2_k5f4k"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://daiqfdg8mq3lf" path="res://Scenes/enemigo_2.tscn" id="8_754fn"]
 [ext_resource type="PackedScene" uid="uid://b6tltaqjk4jbr" path="res://Scenes/enemigo_3.tscn" id="9_bvt00"]
 [ext_resource type="PackedScene" uid="uid://t2gmfywm0x8w" path="res://Scenes/Cofre.tscn" id="10_oqgf2"]
+[ext_resource type="PackedScene" uid="uid://bungjppeb2a5c" path="res://Scenes/Diamante.tscn" id="11_qxfql"]
 
 [sub_resource type="TileSet" id="TileSet_k5f4k"]
 tile_size = Vector2i(32, 32)
@@ -191,7 +192,7 @@ tile_set = SubResource("TileSet_6phgx")
 tile_set = SubResource("TileSet_0f350")
 
 [node name="Player" parent="." instance=ExtResource("2_k5f4k")]
-position = Vector2(47, 130)
+position = Vector2(41, 145)
 
 [node name="HUD" parent="Player" instance=ExtResource("3_0f350")]
 
@@ -287,3 +288,6 @@ position = Vector2(1266, 750)
 
 [node name="Cofre" parent="." instance=ExtResource("10_oqgf2")]
 position = Vector2(661, 681)
+
+[node name="Diamante" parent="." instance=ExtResource("11_qxfql")]
+position = Vector2(3921, 721)

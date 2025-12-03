@@ -22,4 +22,4 @@ func _on_game_timer_timeout() -> void:
 		update_timer_label()
 	else:
 		game_timer_node.stop()
-		get_tree().change_scene_to_file("res://Scenes/Perdiste.tscn")
+		get_tree().change_scene_to_file("res://Scenes/perdiste.tscn")
