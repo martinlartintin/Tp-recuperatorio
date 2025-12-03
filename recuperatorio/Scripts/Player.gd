@@ -50,7 +50,6 @@ func die():
 	is_dead = true
 
 	Global.death_count += 1
-	print("Muertes: ", Global.death_count)
 
 	anim.play("die")
 

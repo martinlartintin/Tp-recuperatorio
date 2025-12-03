@@ -22,8 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://ckbrpe5kuea07" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/03-Jump/Jump 03.png" id="14_i2e8t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kyqiw"]
-radius = 12.0
-height = 26.0
+height = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m0x7a"]
 radius = 12.0
