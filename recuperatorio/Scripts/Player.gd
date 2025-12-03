@@ -1,37 +1,34 @@
 extends CharacterBody2D
 
-const SPEED := 200.0
-const JUMP_FORCE := 350.0
-const GRAVITY := 900.0
+const SPEED: float = 200.0
+const JUMP_FORCE: float = 350.0
+const GRAVITY: float = 900.0
+const COYOTE_TIME: float = 0.12
 
-const COYOTE_TIME := 0.12
-var coyote_timer := 0.0
-var is_dead = false
+var coyote_timer: float = 0.0
+var is_dead: bool = false
+var facing: int = 1  
 
-@onready var anim := $Sprite2D/AnimatedSprite2D
+@onready var anim: AnimatedSprite2D = $Sprite2D/AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $Sprite2D/AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
+	var input_dir: float = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var move_dir: int = sign(input_dir)
+
+	var current_speed: float = SPEED
+	if Global.cofre_abierto:
+		current_speed = SPEED * 1.5
+	velocity.x = move_dir * current_speed
+
+	if move_dir != 0:
+		facing = move_dir
+		sprite.flip_h = facing == -1
+
 	velocity.y += GRAVITY * delta
-
-	var direction := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	velocity.x = direction * SPEED
-
-	if direction != 0:
-		anim.flip_h = direction < 0
-
-	if not is_on_floor():
-		if velocity.y < 0:
-			anim.play("jump")
-		else:
-			anim.play("fall")
-	else:
-		if direction == 0:
-			anim.play("idle")
-		else:
-			anim.play("run")
 
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
@@ -44,14 +41,36 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func die():
+	if not is_on_floor():
+		if velocity.y < 0:
+			anim.play("jump")
+		else:
+			anim.play("fall")
+	else:
+		if move_dir == 0:
+			anim.play("idle")
+		else:
+			anim.play("run")
+
+func receive_damage(enemy_position: Vector2) -> void:
+	if is_dead:
+		return
+
+	if Global.cofre_abierto:
+		var enemy_dir: int = sign(enemy_position.x - global_position.x)
+		if enemy_dir != facing:
+			return
+
+	Global.death_count += 1
+	die()
+
+func die() -> void:
 	if is_dead:
 		return
 	is_dead = true
-
 	Global.death_count += 1
-
+	Global.cofre_abierto = false
+	Global.llave_recogida = false
 	anim.play("die")
-
 	await get_tree().create_timer(0.8).timeout
 	get_tree().reload_current_scene()

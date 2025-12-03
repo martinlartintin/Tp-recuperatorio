@@ -35,9 +35,7 @@ func _turn():
 
 func _on_damage_area_body_entered(body: Node) -> void:
 	var root := body
-
 	while root and not root.is_in_group("Player"):
 		root = root.get_parent()
-
 	if root and root.is_in_group("Player"):
-		root.die()
+		root.receive_damage(global_position)
