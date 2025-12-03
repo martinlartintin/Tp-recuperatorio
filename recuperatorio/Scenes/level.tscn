@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://c53w04r84hpj7"]
+[gd_scene load_steps=13 format=4 uid="uid://c53w04r84hpj7"]
 
 [ext_resource type="Texture2D" uid="uid://cl5bcl81o0uka" path="res://Sprites/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="1_tumq0"]
 [ext_resource type="PackedScene" uid="uid://bw6qjf3fa0v6u" path="res://Scenes/Player.tscn" id="2_k5f4k"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://brst6arvesew8" path="res://Scenes/enemigo_1.tscn" id="3_6phgx"]
 [ext_resource type="PackedScene" uid="uid://dv3ixhdvwnfqs" path="res://Scenes/kill_zone.tscn" id="4_81xng"]
 [ext_resource type="PackedScene" uid="uid://bi1ivyouee7h3" path="res://Scenes/pinchos.tscn" id="5_wqkje"]
+[ext_resource type="PackedScene" uid="uid://oj8f5lje1i6s" path="res://Scripts/llave.tscn" id="7_8c0lf"]
 
 [sub_resource type="TileSet" id="TileSet_k5f4k"]
 tile_size = Vector2i(32, 32)
@@ -194,6 +195,15 @@ position = Vector2(43, 73)
 [node name="Enemigo 1" parent="." instance=ExtResource("3_6phgx")]
 position = Vector2(305, 147)
 
+[node name="Enemigo 2" parent="." instance=ExtResource("3_6phgx")]
+position = Vector2(879, 147)
+
+[node name="Pinchos8" parent="." instance=ExtResource("5_wqkje")]
+position = Vector2(831, 144)
+
+[node name="Pinchos9" parent="." instance=ExtResource("5_wqkje")]
+position = Vector2(2941, 48)
+
 [node name="Pinchos" parent="." instance=ExtResource("5_wqkje")]
 position = Vector2(559, 145)
 
@@ -207,7 +217,13 @@ position = Vector2(1444, -97)
 position = Vector2(1699, -96)
 
 [node name="Pinchos5" parent="Pinchos" instance=ExtResource("5_wqkje")]
+position = Vector2(369, -1)
+
+[node name="Pinchos6" parent="Pinchos" instance=ExtResource("5_wqkje")]
 position = Vector2(1955, -97)
+
+[node name="Pinchos7" parent="Pinchos" instance=ExtResource("5_wqkje")]
+position = Vector2(2293, -97)
 
 [node name="KillZone" parent="." instance=ExtResource("4_81xng")]
 position = Vector2(-391, 459)
@@ -226,3 +242,6 @@ scale = Vector2(3, 0.125)
 position = Vector2(578.875, -859)
 rotation = 1.5707964
 scale = Vector2(3, 0.125)
+
+[node name="Llave" parent="." instance=ExtResource("7_8c0lf")]
+position = Vector2(2895, 46)

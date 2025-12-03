@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://oj8f5lje1i6s"]
+
+[ext_resource type="Script" uid="uid://dmvt1rj63g1q3" path="res://llave.gd" id="1_75npx"]
+[ext_resource type="Texture2D" uid="uid://ct5p8t8sffsme" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_ldbvl"]
+[ext_resource type="Texture2D" uid="uid://besegr24rwa6f" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="3_fti85"]
+[ext_resource type="Texture2D" uid="uid://sd7jf5oyux4q" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="4_bkr4n"]
+[ext_resource type="Texture2D" uid="uid://de2ydhb6pr0yg" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="5_lwrrm"]
+[ext_resource type="Texture2D" uid="uid://c4fvpob4vtjap" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="6_gmhur"]
+[ext_resource type="Texture2D" uid="uid://07aro8hvujes" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="7_0skab"]
+[ext_resource type="Texture2D" uid="uid://cvyyjfdj78nq4" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="8_7dqj7"]
+[ext_resource type="Texture2D" uid="uid://cbs3mias2ikjx" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="9_kxf3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75npx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqexc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ldbvl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fti85")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bkr4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lwrrm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gmhur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0skab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7dqj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kxf3s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Llave" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_75npx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_75npx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_yqexc")
+animation = &"idle"
