@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi1ivyouee7h3"]
+
+[ext_resource type="Texture2D" uid="uid://def6qjnagtl6i" path="res://Sprites/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_d15tb"]
+[ext_resource type="Script" uid="uid://ch1o6w58uldcy" path="res://Scenes/kill_zone.gd" id="1_o6r8l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6r8l"]
+size = Vector2(31, 18)
+
+[node name="Pinchos" type="Area2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_o6r8l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 7)
+shape = SubResource("RectangleShape2D_o6r8l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_d15tb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
