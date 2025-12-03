@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpvhwq2ahjcou"]
+
+[ext_resource type="Script" uid="uid://db7mcncyoiro2" path="res://Scripts/cofre.gd" id="1_2c22f"]
+[ext_resource type="Texture2D" uid="uid://crtndwmeo85ga" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Idle/1.png" id="2_0up6m"]
+[ext_resource type="Texture2D" uid="uid://dwxaq1jxmy132" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/1.png" id="3_ifvfx"]
+[ext_resource type="Texture2D" uid="uid://bk06o0e1y1gj" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/2.png" id="4_hokqj"]
+[ext_resource type="Texture2D" uid="uid://dj66deg04wiw2" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="5_ce3c1"]
+[ext_resource type="Texture2D" uid="uid://d3g3v4jxam2ty" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/4.png" id="6_u0viw"]
+[ext_resource type="Texture2D" uid="uid://dil3548ts0wcn" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/5.png" id="7_wslk8"]
+[ext_resource type="Texture2D" uid="uid://c8m0c3bl2cm63" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/6.png" id="8_rgsy2"]
+[ext_resource type="Texture2D" uid="uid://c880aw7bl2t18" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/7.png" id="9_6f8kk"]
+[ext_resource type="Texture2D" uid="uid://ci22pclgjmr0e" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/8.png" id="10_lpj8y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75npx"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqexc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0up6m")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ifvfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hokqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ce3c1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u0viw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wslk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rgsy2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_6f8kk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_lpj8y")
+}],
+"loop": false,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[node name="Cofre" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_2c22f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_75npx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_yqexc")
+animation = &"unlocked"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

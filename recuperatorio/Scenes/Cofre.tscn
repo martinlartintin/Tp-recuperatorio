@@ -1,0 +1,81 @@
+[gd_scene load_steps=14 format=3 uid="uid://t2gmfywm0x8w"]
+
+[ext_resource type="Script" uid="uid://db7mcncyoiro2" path="res://Scripts/cofre.gd" id="1_5sknn"]
+[ext_resource type="Texture2D" uid="uid://crtndwmeo85ga" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Idle/1.png" id="2_5sknn"]
+[ext_resource type="Texture2D" uid="uid://dwxaq1jxmy132" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/1.png" id="3_yd0fm"]
+[ext_resource type="Texture2D" uid="uid://bk06o0e1y1gj" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/2.png" id="4_7wa6e"]
+[ext_resource type="Texture2D" uid="uid://dj66deg04wiw2" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="5_et82j"]
+[ext_resource type="Texture2D" uid="uid://d3g3v4jxam2ty" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/4.png" id="6_g6s58"]
+[ext_resource type="Texture2D" uid="uid://dil3548ts0wcn" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/5.png" id="7_cmbcu"]
+[ext_resource type="Texture2D" uid="uid://c8m0c3bl2cm63" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/6.png" id="8_0d8df"]
+[ext_resource type="Texture2D" uid="uid://c880aw7bl2t18" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/7.png" id="9_nojo8"]
+[ext_resource type="Texture2D" uid="uid://ci22pclgjmr0e" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest/Unlocked/8.png" id="10_gbgsn"]
+[ext_resource type="FontFile" uid="uid://bxlx8yfe6dje2" path="res://Fonts/Pixellari.ttf" id="11_yd0fm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_75npx"]
+radius = 18.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqexc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_5sknn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_yd0fm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7wa6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_et82j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_g6s58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cmbcu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0d8df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_nojo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gbgsn")
+}],
+"loop": false,
+"name": &"unlocked",
+"speed": 5.0
+}]
+
+[node name="Cofre" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+collision_mask = 2
+script = ExtResource("1_5sknn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_75npx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_yqexc")
+animation = &"unlocked"
+
+[node name="Label" type="Label" parent="."]
+offset_left = -45.333336
+offset_top = -30.666666
+offset_right = 15.333332
+offset_bottom = -7.666666
+theme_override_fonts/font = ExtResource("11_yd0fm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
