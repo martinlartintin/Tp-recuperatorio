@@ -10,7 +10,7 @@ var direction := -1
 @onready var damage_area := $DamageArea
 
 func _ready():
-	damage_area.body_entered.connect(_on_damage_area_body_entered)
+	pass
 
 func _physics_process(delta: float) -> void:
 	velocity.y += GRAVITY * delta
@@ -31,9 +31,10 @@ func _turn():
 	ray_down.position.x *= -1
 
 func _on_damage_area_body_entered(body: Node) -> void:
-	var player := body
-	if not player.is_in_group("Player") and player.get_parent():
-		player = player.get_parent()
+	var root := body
 
-	if player.is_in_group("Player"):
-		player.die()
+	while root and not root.is_in_group("Player"):
+		root = root.get_parent()
+
+	if root and root.is_in_group("Player"):
+		root.die()

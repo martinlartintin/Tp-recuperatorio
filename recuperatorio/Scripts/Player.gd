@@ -6,20 +6,32 @@ const GRAVITY := 900.0
 
 const COYOTE_TIME := 0.12
 var coyote_timer := 0.0
+var is_dead = false
 
 @onready var anim := $Sprite2D/AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
+	if is_dead:
+		return
+
 	velocity.y += GRAVITY * delta
 
 	var direction := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 	velocity.x = direction * SPEED
 
-	if direction == 0:
-		anim.play("idle")
-	else:
-		anim.play("run")
+	if direction != 0:
 		anim.flip_h = direction < 0
+
+	if not is_on_floor():
+		if velocity.y < 0:
+			anim.play("jump")
+		else:
+			anim.play("fall")
+	else:
+		if direction == 0:
+			anim.play("idle")
+		else:
+			anim.play("run")
 
 	if is_on_floor():
 		coyote_timer = COYOTE_TIME
@@ -33,6 +45,11 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func die():
+	if is_dead:
+		return
+	is_dead = true
+
 	anim.play("die")
-	await anim.animation_finished
+
+	await get_tree().create_timer(0.8).timeout
 	get_tree().reload_current_scene()
