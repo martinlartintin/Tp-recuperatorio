@@ -22,6 +22,10 @@ window/size/viewport_height=288
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Player=""
+
 [input]
 
 ui_accept={
@@ -50,6 +54,8 @@ move_jump={
 [layer_names]
 
 2d_physics/layer_1="Mundo"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Enemy"
 
 [rendering]
 

@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
 const SPEED := 200.0
-const JUMP_FORCE := 400.0
+const JUMP_FORCE := 350.0
 const GRAVITY := 900.0
+
+const COYOTE_TIME := 0.12
+var coyote_timer := 0.0
 
 @onready var anim := $Sprite2D/AnimatedSprite2D
 
@@ -16,12 +19,20 @@ func _physics_process(delta: float) -> void:
 		anim.play("idle")
 	else:
 		anim.play("run")
-		if direction > 0:
-			anim.flip_h = false
-		elif direction < 0:
-			anim.flip_h = true
+		anim.flip_h = direction < 0
 
-	if Input.is_action_just_pressed("move_jump") and is_on_floor():
+	if is_on_floor():
+		coyote_timer = COYOTE_TIME
+	else:
+		coyote_timer -= delta
+
+	if Input.is_action_just_pressed("move_jump") and coyote_timer > 0:
 		velocity.y = -JUMP_FORCE
+		coyote_timer = 0
 
 	move_and_slide()
+
+func die():
+	anim.play("die")
+	await anim.animation_finished
+	get_tree().reload_current_scene()
