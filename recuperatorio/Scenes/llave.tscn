@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://oj8f5lje1i6s"]
 
-[ext_resource type="Script" uid="uid://dmvt1rj63g1q3" path="res://llave.gd" id="1_75npx"]
+[ext_resource type="Script" uid="uid://dmvt1rj63g1q3" path="res://Scripts/llave.gd" id="1_75npx"]
 [ext_resource type="Texture2D" uid="uid://ct5p8t8sffsme" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="2_ldbvl"]
 [ext_resource type="Texture2D" uid="uid://besegr24rwa6f" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="3_fti85"]
 [ext_resource type="Texture2D" uid="uid://sd7jf5oyux4q" path="res://Sprites/Treasure Hunters/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="4_bkr4n"]

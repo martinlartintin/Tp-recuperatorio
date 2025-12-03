@@ -19,7 +19,7 @@ func update_timer_label():
 	timer_label.text = "%02d:%02d" % [minutes, seconds]
 
 func game_over():
-	get_tree().change_scene_to_file("res://Escenas/perdiste.tscn")
+	get_tree().change_scene_to_file("res://Scenes/perdiste.tscn")
 
 
 func _on_game_timer_timeout() -> void:
