@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bw6qjf3fa0v6u"]
+[gd_scene load_steps=15 format=3 uid="uid://bw6qjf3fa0v6u"]
 
 [ext_resource type="Script" uid="uid://c0heikmr7r1fv" path="res://Scripts/Player.gd" id="1_rpqav"]
 [ext_resource type="Texture2D" uid="uid://cfrx0ydgqp2qi" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_nn08x"]
@@ -6,10 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://cva6lro3gmgq" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 03.png" id="4_bhhdu"]
 [ext_resource type="Texture2D" uid="uid://bk11xt24s6a3q" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 04.png" id="5_megsn"]
 [ext_resource type="Texture2D" uid="uid://chth5m0bhap6w" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 05.png" id="6_yoq75"]
+[ext_resource type="Texture2D" uid="uid://c3rhrpnsfjt7p" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 01.png" id="7_glx4g"]
+[ext_resource type="Texture2D" uid="uid://n05pcjfm257p" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 02.png" id="8_miouo"]
+[ext_resource type="Texture2D" uid="uid://bgpurm7ik50q6" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 03.png" id="9_o3h8g"]
+[ext_resource type="Texture2D" uid="uid://d1ia8cv7ry2gw" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="10_1e7my"]
+[ext_resource type="Texture2D" uid="uid://bjcimukpr4ktj" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="11_arntx"]
+[ext_resource type="Texture2D" uid="uid://cgycryjux5pdn" path="res://Sprites/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="12_lslt6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kyqiw"]
-radius = 21.0
-height = 60.0
+radius = 12.0
+height = 26.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ksbbd"]
 animations = [{
@@ -32,10 +38,36 @@ animations = [{
 "loop": false,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_glx4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_miouo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_o3h8g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_1e7my")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_arntx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_lslt6")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_rpqav")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_kyqiw")
@@ -45,6 +77,4 @@ texture_filter = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_ksbbd")
-animation = &"idle"
-frame = 4
-frame_progress = 1.0
+animation = &"run"
