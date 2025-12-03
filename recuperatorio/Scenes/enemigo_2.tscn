@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://daiqfdg8mq3lf"]
 
-[ext_resource type="Script" uid="uid://bxa2rbc320ni3" path="res://Scenes/enemigo_2.gd" id="1_b63c4"]
+[ext_resource type="Script" uid="uid://bxa2rbc320ni3" path="res://Scripts/enemigo_2.gd" id="1_b63c4"]
 [ext_resource type="Texture2D" uid="uid://byr0vfhpsr2f7" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 01.png" id="2_0qgdp"]
 [ext_resource type="Texture2D" uid="uid://cg2y2em7wnusk" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="2_b63c4"]
 [ext_resource type="Texture2D" uid="uid://dq1n3dx0ubgq4" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="3_0oiti"]
