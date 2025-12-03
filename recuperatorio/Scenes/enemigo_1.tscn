@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brst6arvesew8"]
+[gd_scene load_steps=20 format=3 uid="uid://brst6arvesew8"]
 
 [ext_resource type="Script" uid="uid://br16vs0y0xti2" path="res://Scripts/enemigo_1.gd" id="1_dphad"]
 [ext_resource type="Texture2D" uid="uid://b5b4kvbycsnu4" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="1_fhtb2"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://ca1dw2esvjppd" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="7_0li0w"]
 [ext_resource type="Texture2D" uid="uid://c84giyk6jpmpw" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 08.png" id="8_ac72a"]
 [ext_resource type="Texture2D" uid="uid://ckhoow047tfmr" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 09.png" id="9_hkq1f"]
+[ext_resource type="Texture2D" uid="uid://f0hsqo3jjqyc" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 01.png" id="11_ac72a"]
+[ext_resource type="Texture2D" uid="uid://cr11omkbp30um" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 02.png" id="12_hkq1f"]
+[ext_resource type="Texture2D" uid="uid://de4miwa65o18w" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 03.png" id="13_bkovy"]
+[ext_resource type="Texture2D" uid="uid://bn6hvw5ph5h2x" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 04.png" id="14_noceh"]
+[ext_resource type="Texture2D" uid="uid://bogpug16pi8nn" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 05.png" id="15_bpunr"]
+[ext_resource type="Texture2D" uid="uid://bmlive31l1dg0" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Crabby/02-Run/Run 06.png" id="16_483qn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bkovy"]
 size = Vector2(26, 24)
@@ -47,6 +53,29 @@ animations = [{
 "loop": false,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ac72a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hkq1f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bkovy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_noceh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bpunr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_483qn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dphad"]
@@ -66,7 +95,7 @@ shape = SubResource("RectangleShape2D_bkovy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_noceh")
-animation = &"idle"
+animation = &"run"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(-15, 12)

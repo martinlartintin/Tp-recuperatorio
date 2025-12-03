@@ -1,0 +1,121 @@
+[gd_scene load_steps=20 format=3 uid="uid://daiqfdg8mq3lf"]
+
+[ext_resource type="Script" uid="uid://bxa2rbc320ni3" path="res://Scenes/enemigo_2.gd" id="1_b63c4"]
+[ext_resource type="Texture2D" uid="uid://byr0vfhpsr2f7" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 01.png" id="2_0qgdp"]
+[ext_resource type="Texture2D" uid="uid://cg2y2em7wnusk" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="2_b63c4"]
+[ext_resource type="Texture2D" uid="uid://dq1n3dx0ubgq4" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="3_0oiti"]
+[ext_resource type="Texture2D" uid="uid://cd4bfhtp3kxt6" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 02.png" id="3_8cryk"]
+[ext_resource type="Texture2D" uid="uid://c51j6s471gjpp" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="4_jbp7u"]
+[ext_resource type="Texture2D" uid="uid://b3rmj4ju8sirh" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 03.png" id="4_klwie"]
+[ext_resource type="Texture2D" uid="uid://dk7rgajyg6oc0" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="5_3aktb"]
+[ext_resource type="Texture2D" uid="uid://brl37t30lotwm" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="5_i2o0v"]
+[ext_resource type="Texture2D" uid="uid://reijoll2yctu" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 05.png" id="6_1qkrr"]
+[ext_resource type="Texture2D" uid="uid://bvih4s26g1iwn" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="6_u4k0t"]
+[ext_resource type="Texture2D" uid="uid://dpi7wtxxnrnvh" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="7_w5yrq"]
+[ext_resource type="Texture2D" uid="uid://k63abpff84iu" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="7_xxes1"]
+[ext_resource type="Texture2D" uid="uid://bw1ydemwvfgfs" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 07.png" id="8_32od7"]
+[ext_resource type="Texture2D" uid="uid://cyxqy6ftbglq0" path="res://Sprites/Treasure Hunters/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 08.png" id="9_gj5kn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bkovy"]
+size = Vector2(26, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_noceh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b63c4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_0oiti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jbp7u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i2o0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1qkrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_w5yrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_32od7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gj5kn")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0qgdp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8cryk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_klwie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3aktb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_u4k0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xxes1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dphad"]
+size = Vector2(34, 25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0oiti"]
+radius = 111.28792
+
+[node name="Enemigo 2" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_b63c4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
+shape = SubResource("RectangleShape2D_bkovy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Sprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_noceh")
+animation = &"idle"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-15, 12)
+target_position = Vector2(0, 13)
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dphad")
+debug_color = Color(0.9367286, 1.3861656e-05, 0.63308996, 0.41960785)
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_0oiti")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
