@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs5f4rw0rvrnc"]
+
+[ext_resource type="Script" uid="uid://d3vqlx33iunrd" path="res://Scenes/hud.gd" id="1_e0onf"]
+[ext_resource type="FontFile" uid="uid://bxlx8yfe6dje2" path="res://Pixellari.ttf" id="2_fccik"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_e0onf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 420.0
+offset_right = 512.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_fccik")

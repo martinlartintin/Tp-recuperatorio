@@ -49,6 +49,9 @@ func die():
 		return
 	is_dead = true
 
+	Global.death_count += 1
+	print("Muertes: ", Global.death_count)
+
 	anim.play("die")
 
 	await get_tree().create_timer(0.8).timeout
