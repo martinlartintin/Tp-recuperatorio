@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://def6qjnagtl6i" path="res://Sprites/Treasure Hunters/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_d15tb"]
 [ext_resource type="Script" uid="uid://ch1o6w58uldcy" path="res://Scenes/kill_zone.gd" id="1_o6r8l"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6r8l"]
-size = Vector2(31, 18)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6r8l"]
+radius = 7.0
 
 [node name="Pinchos" type="Area2D"]
 collision_layer = 8
@@ -13,8 +13,10 @@ script = ExtResource("1_o6r8l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(-1, 7)
-shape = SubResource("RectangleShape2D_o6r8l")
+position = Vector2(-1, 9)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_o6r8l")
+disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
